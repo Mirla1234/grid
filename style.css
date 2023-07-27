@@ -1,0 +1,215 @@
+:root {
+  font-size: 62.5%;
+  --font-fam-titles: "Staatliches", cursive;
+  --font-fam-descrition: "Palanquin", sans-serif;
+  --bg-primary: hsla(218, 17%, 62%, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+.page {
+  max-width: 37.7rem;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--bg-primary);
+}
+header {
+  background: var(--bg-primary);
+  max-width: 37.7rem;
+  min-height: 72rem;
+  margin-bottom: 5rem;
+}
+header img {
+  margin: 3.2rem 8rem;
+
+  animation-name: img-logo;
+  animation-duration: 1s;
+}
+
+header .title {
+  background: #cbc0d3;
+}
+header h1 {
+  font-size: 4.8rem;
+  line-height: 3.4rem;
+  padding: 2rem 7.4rem;
+  font-family: var(--font-fam-titles);
+  font-weight: 400;
+
+  animation-name: esquerdadireita;
+  animation-duration: 700ms;
+}
+
+header p {
+  font-family: var(--font-fam-descrition);
+  margin: 5rem 4.8rem 12.5rem 5.4rem;
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+/*Main*/
+.cards {
+  display: grid;
+  gap: 3.2rem;
+  padding: 0 2rem;
+}
+.card {
+  animation-name: cards;
+  animation-duration: 1s;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+
+  transition: all;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19) 0s;
+}
+.cards img:hover {
+  transform: scale(1.1);
+
+  filter: drop-shadow(2px 4px 6px black);
+  opacity: 0.7;
+}
+footer {
+  opacity: 0;
+  font-size: 2rem;
+}
+
+@keyframes img-logo {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes esquerdadireita {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cards {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 900px) {
+  .page,
+  header {
+    max-width: 90rem;
+  }
+  header h1 {
+    font-size: 5.6rem;
+  }
+  header p {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .cards {
+    grid-template-areas:
+      "A B"
+      "D B"
+      "D C"
+      "E F"
+      "E F";
+  }
+  .cards div:nth-child(1) {
+    grid-area: A;
+  }
+  .cards div:nth-child(2) {
+    grid-area: B;
+  }
+  .cards div:nth-child(3) {
+    grid-area: C;
+  }
+  .cards div:nth-child(4) {
+    grid-area: D;
+  }
+  .cards div:nth-child(5) {
+    grid-area: E;
+  }
+  .cards div:nth-child(6) {
+    grid-area: F;
+  }
+}
+
+@media (min-width: 1250px) {
+  .page {
+    display: flex;
+    max-width: 150rem;
+  }
+  header {
+    max-width: 40rem;
+    height: 85rem;
+  }
+  header h1 {
+    font-size: 4.5rem;
+  }
+  main {
+    position: relative;
+    background: #ffffff;
+  }
+  .cards {
+    height: 85%;
+    padding: 10rem 8.1rem 12.5rem 9.8rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "A B C"
+      "D B F"
+      "D E F";
+  }
+  .cards div:nth-child(1) {
+    grid-area: A;
+  }
+  .cards div:nth-child(2) {
+    grid-area: B;
+  }
+  .cards div:nth-child(3) {
+    grid-area: C;
+  }
+  .cards div:nth-child(4) {
+    grid-area: D;
+  }
+  .cards div:nth-child(5) {
+    grid-area: E;
+  }
+  .cards div:nth-child(6) {
+    grid-area: F;
+  }
+  footer {
+    height: 5vh;
+    position: absolute;
+    opacity: 1;
+    padding: 2rem;
+    margin-top: 5rem;
+    width: 100%;
+    color: #4a4e69;
+  }
+}
